@@ -1,5 +1,11 @@
+import TaskContainer from "./components/TaskContainer";
+
 function App() {
-  return <div className="underline">App</div>;
+  return (
+    <div>
+      <TaskContainer />
+    </div>
+  );
 }
 
 export default App;
