@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import { TbEdit } from "react-icons/tb";
-import useTodoContext from "../utils/useTodo";
+import useTodoContext from "../hooks/useTodo";
 
 function Task({ todo }) {
   const { title, status, priority } = todo;

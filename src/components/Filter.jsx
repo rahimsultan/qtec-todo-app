@@ -1,4 +1,4 @@
-import useTodoContext from "../utils/useTodo";
+import useTodoContext from "../hooks/useTodo";
 
 function Filter() {
   const { priority, setPriority } = useTodoContext();
