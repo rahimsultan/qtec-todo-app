@@ -1,10 +1,11 @@
 import TaskContainer from "./components/TaskContainer";
+import TodoContext from "./contexts/TodoContext";
 
 function App() {
   return (
-    <div>
+    <TodoContext>
       <TaskContainer />
-    </div>
+    </TodoContext>
   );
 }
 

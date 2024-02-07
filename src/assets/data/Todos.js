@@ -19,8 +19,8 @@ const todos = [
   },
 ];
 
-function getData() {
+function getTodo() {
   return todos;
 }
 
-export { getData };
+export { getTodo };

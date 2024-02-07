@@ -1,6 +1,8 @@
+import { useTodoContext } from "../contexts/TodoContext";
 import Task from "./Task";
 
 function TaskTable() {
+  const { todos } = useTodoContext();
   return (
     <table className="min-w-full divide-y divide-gray-200">
       <thead className="bg-gray-50">
@@ -31,8 +33,9 @@ function TaskTable() {
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-200 bg-white">
-        <Task />
-        <Task />
+        {todos.map((todo) => (
+          <Task key={todo.id} todo={todo} />
+        ))}
       </tbody>
     </table>
   );
