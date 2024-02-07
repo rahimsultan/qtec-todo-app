@@ -1,8 +1,4 @@
-import { getTodo } from "../assets/data/Todos";
-
-const todos = getTodo();
-
-export function nextId() {
+export function nextId(todos) {
   const maxId = todos.reduce((max, todo) => Math.max(max, todo.id), 0);
   return maxId + 1;
 }

@@ -1,8 +1,9 @@
-import { useTodoContext } from "../contexts/TodoContext";
+import useTodoContext from "../utils/useTodo";
 import Task from "./Task";
 
 function TaskTable() {
   const { todos } = useTodoContext();
+  console.log(todos);
   return (
     <table className="min-w-full divide-y divide-gray-200">
       <thead className="bg-gray-50">

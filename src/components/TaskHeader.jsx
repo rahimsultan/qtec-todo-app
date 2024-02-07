@@ -1,9 +1,7 @@
-import { getTodo } from "../assets/data/Todos";
-import { useTodoContext } from "../contexts/TodoContext";
+import useTodoContext from "../utils/useTodo";
 
 function TaskHeader() {
-  const { setModalOpen } = useTodoContext();
-  const todos = getTodo();
+  const { setIsAddForm, todos } = useTodoContext();
   const complete = todos.filter((todo) => todo.status === "complete").length;
 
   return (
@@ -12,7 +10,7 @@ function TaskHeader() {
       <div className="flex items-center space-x-5">
         <button
           className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold"
-          onClick={() => setModalOpen((prev) => !prev)}
+          onClick={() => setIsAddForm((prev) => !prev)}
         >
           Add Task
         </button>

@@ -1,27 +1,27 @@
 import { useState } from "react";
-import { useTodoContext } from "../contexts/TodoContext";
-import { nextId } from "../utils/nextId";
 
-function TaskModal() {
-  const { setModalOpen, setTodos, todos } = useTodoContext();
+import { nextId } from "../utils/nextId";
+import useTodoContext from "../utils/useTodo";
+
+function AddForm() {
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState("");
   const [priority, setPriority] = useState("");
+
+  const { setIsAddForm, setTodos, todos } = useTodoContext();
 
   const handleTaskAdd = (event) => {
     event.preventDefault();
 
     // new todo object
     const newTodo = {
-      id: nextId(),
+      id: nextId(todos),
       title,
       status,
       priority,
     };
-    setTodos([...todos, newTodo]);
-
-    console.log(todos);
-    setModalOpen((prev) => !prev);
+    setTodos((prevTodo) => [...prevTodo, newTodo]);
+    setIsAddForm((prev) => !prev);
   };
 
   return (
@@ -73,7 +73,7 @@ function TaskModal() {
                 <button
                   type="button"
                   className="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:w-1/2 sm:mx-2  hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
-                  onClick={() => setModalOpen((prev) => !prev)}
+                  onClick={() => setIsAddForm((prev) => !prev)}
                 >
                   Cancel
                 </button>
@@ -93,4 +93,4 @@ function TaskModal() {
   );
 }
 
-export default TaskModal;
+export default AddForm;

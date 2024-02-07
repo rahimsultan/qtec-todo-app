@@ -4,20 +4,26 @@ import {
   MdOutlineFileDownloadDone,
 } from "react-icons/md";
 import { TbEdit } from "react-icons/tb";
+import useTodoContext from "../utils/useTodo";
 
 function Task({ todo }) {
-  const { title, id, status, priority } = todo;
+  const { title, status, priority } = todo;
+  const { setIsEditForm, todos, setTodos, setItem } = useTodoContext();
 
-  const handleEdit = (id) => {
-    console.log("edit btn clicked", id);
+  const handleEdit = (editItem) => {
+    console.log("edit btn clicked", editItem);
+    setItem(editItem);
+    setIsEditForm((prev) => !prev);
   };
 
-  const handleDelete = (id) => {
-    console.log("Delete btn clicked", id);
+  const handleDelete = (deleteItem) => {
+    const updated = todos.filter((t) => t.id !== deleteItem.id);
+    setTodos(updated);
   };
+  // console.log(todos);
 
   return (
-    <tr key={"person.name"}>
+    <tr>
       <td className="whitespace-nowrap px-4 py-4">
         <div className="text-sm text-gray-900 ">{title}</div>
       </td>
@@ -34,10 +40,10 @@ function Task({ todo }) {
           <button className="text-green-500" title="mark as done">
             <MdOutlineFileDownloadDone size={20} />
           </button>
-          <button className="text-blue-500" onClick={() => handleEdit(id)}>
+          <button className="text-blue-500" onClick={() => handleEdit(todo)}>
             <TbEdit size={20} />
           </button>
-          <button className="text-red-500" onClick={() => handleDelete(id)}>
+          <button className="text-red-500" onClick={() => handleDelete(todo)}>
             <MdOutlineDeleteSweep size={20} />
           </button>
         </div>

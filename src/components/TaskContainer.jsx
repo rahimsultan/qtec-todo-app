@@ -1,10 +1,11 @@
-import { useTodoContext } from "../contexts/TodoContext";
+import useTodoContext from "../utils/useTodo";
+import AddForm from "./AddForm";
+import EditForm from "./EditForm";
 import TaskHeader from "./TaskHeader";
-import TaskModal from "./TaskModal";
 import TaskTable from "./TaskTable";
 
 function TaskContainer() {
-  const { modalOpen } = useTodoContext();
+  const { isAddForm, isEditForm } = useTodoContext();
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-4">
       <TaskHeader />
@@ -13,7 +14,8 @@ function TaskContainer() {
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden border border-gray-200 md:rounded-lg">
               <TaskTable />
-              {modalOpen && <TaskModal />}
+              {isAddForm && <AddForm />}
+              {isEditForm && <EditForm />}
             </div>
           </div>
         </div>
