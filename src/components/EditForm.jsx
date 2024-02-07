@@ -17,7 +17,7 @@ function EditForm() {
       status: status,
       priority: priority,
     };
-    console.log(updated);
+    // console.log(updated);
     const update = todos.map((todo) => (todo.id === item.id ? updated : todo));
 
     setTodos(update);

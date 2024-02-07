@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
-import {
-  MdOutlineDeleteSweep,
-  MdOutlineFileDownloadDone,
-} from "react-icons/md";
+import { MdOutlineDeleteSweep } from "react-icons/md";
 import { TbEdit } from "react-icons/tb";
 import useTodoContext from "../utils/useTodo";
 
@@ -10,8 +7,22 @@ function Task({ todo }) {
   const { title, status, priority } = todo;
   const { setIsEditForm, todos, setTodos, setItem } = useTodoContext();
 
+  let background;
+
+  switch (priority) {
+    case "low":
+      background = "bg-green-200";
+      break;
+    case "medium":
+      background = "bg-green-400";
+      break;
+    default:
+      background = "bg-red-400";
+      break;
+  }
+
   const handleEdit = (editItem) => {
-    console.log("edit btn clicked", editItem);
+    // console.log("edit btn clicked", editItem);
     setItem(editItem);
     setIsEditForm((prev) => !prev);
   };
@@ -21,14 +32,15 @@ function Task({ todo }) {
     setTodos(updated);
   };
   // console.log(todos);
+  const complete = status === "complete" ? "line-through" : "";
 
   return (
-    <tr>
+    <tr className={`${background} ${complete}`}>
       <td className="whitespace-nowrap px-4 py-4">
         <div className="text-sm text-gray-900 ">{title}</div>
       </td>
       <td className="whitespace-nowrap px-4 py-4">
-        <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
+        <span className="inline-flex rounded-full bg-teal-500 px-2 text-xs font-semibold leading-5 text-green-800">
           {status}
         </span>
       </td>
@@ -37,13 +49,10 @@ function Task({ todo }) {
       </td>
       <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium w-[300px]">
         <div className="flex items-center gap-3 ">
-          <button className="text-green-500" title="mark as done">
-            <MdOutlineFileDownloadDone size={20} />
-          </button>
           <button className="text-blue-500" onClick={() => handleEdit(todo)}>
             <TbEdit size={20} />
           </button>
-          <button className="text-red-500" onClick={() => handleDelete(todo)}>
+          <button className="text-red-800" onClick={() => handleDelete(todo)}>
             <MdOutlineDeleteSweep size={20} />
           </button>
         </div>

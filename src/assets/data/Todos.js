@@ -3,7 +3,7 @@ const todos = [
     id: 1,
     title: "Integration API",
     status: "incomplete",
-    priority: "high",
+    priority: "low",
   },
   {
     id: 2,
