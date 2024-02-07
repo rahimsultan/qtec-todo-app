@@ -1,8 +1,11 @@
-# React + Vite
+# A Simple Todo App 
+Functionality 
+- user can add task
+- edit task
+- delete task
+- local storage for persistent data
+- filter by priority base
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+app image:
+![test-app](https://github.com/rahimsultan/qtec-todo-app/assets/68680948/0cdb7a4e-a7b2-4699-b215-3317271d534b)
