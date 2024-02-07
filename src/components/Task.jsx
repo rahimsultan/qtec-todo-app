@@ -47,8 +47,8 @@ function Task({ todo }) {
       <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
         {priority}
       </td>
-      <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium w-[300px]">
-        <div className="flex items-center gap-3 ">
+      <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium md:w-[300px]">
+        <div className="flex items-center justify-end gap-3 ">
           <button className="text-blue-500" onClick={() => handleEdit(todo)}>
             <TbEdit size={20} />
           </button>

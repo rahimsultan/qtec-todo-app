@@ -8,7 +8,7 @@ function TaskHeader() {
   return (
     <div className="mt-14 items-center justify-between sm:flex">
       <h2 className="text-2xl font-semibold max-sm:mb-4">Daily Task Lists</h2>
-      <div className="flex items-center space-x-5">
+      <div className="flex items-center gap-3 flex-wrap">
         <button
           className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold"
           onClick={() => setIsAddForm((prev) => !prev)}
